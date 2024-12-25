@@ -4,7 +4,7 @@ const ReposetoryData = () => {
     {"name": "design-system", "type": "private", "size": "8396 KB", "technology": "Go", "time": "Updated 21 days ago"},
     {"name": "backend-api", "type": "private", "size": "5337 KB", "technology": "Node.js", "time": "Updated 1 days ago"},
     {"name": "frontend-ui", "type": "private", "size": "6912 KB", "technology": "Node.js", "time": "Updated 3 days ago"},
-    {"name": "data-processor", "type": "private", "size": "3741 KB", "technology": "Vue", "time": "Updated 6 days ago"},
+    {"name": "data-processor", "type": "public", "size": "3741 KB", "technology": "Vue", "time": "Updated 6 days ago"},
     {"name": "auth-service", "type": "private", "size": "6250 KB", "technology": "Python", "time": "Updated 5 days ago"},
     {"name": "logging-tool", "type": "public", "size": "6154 KB", "technology": "PHP", "time": "Updated 18 days ago"},
     {"name": "analytics-dashboard", "type": "public", "size": "8754 KB", "technology": "Ruby", "time": "Updated 16 days ago"},
