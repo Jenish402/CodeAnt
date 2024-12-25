@@ -6,7 +6,6 @@ import Repo from "./Repo";
 import ReposetoryData from "./ReposetoryData.js";
 
 function Right() {
-
   const [searchData, setSearchData] = useState("");
   const [Reposetories, setReposetories] = useState([]);
   const [filteredRepo, setfilteredRepo] = useState([]);
@@ -17,15 +16,17 @@ function Right() {
     setfilteredRepo(data);
   }, []);
 
-  
-  const search = (e) => {
-    e.preventDefault();
-    const filterRepo = Reposetories.filter((Repo) => (
-        Repo.name.toLowerCase().includes(searchData.toLowerCase())
-    ));
-
+  // Updated search functionality to work on every keystroke
+  useEffect(() => {
+    const filterRepo = Reposetories.filter((repo) =>
+      repo.name.toLowerCase().includes(searchData.toLowerCase())
+    );
     setfilteredRepo(filterRepo);
-  }
+  }, [searchData, Reposetories]); // Dependencies added to re-run when search input or repositories change
+
+  const handleSearchChange = (e) => {
+    setSearchData(e.target.value);
+  };
 
   return (
     <>
@@ -55,15 +56,15 @@ function Right() {
             <div className="relative mb-[20px]">
               <input
                 value={searchData}
-                onChange={(e) => setSearchData(e.target.value)}
+                onChange={handleSearchChange}
                 type="text"
                 placeholder="Search Repositories"
                 className="w-[336px] border outline-none h-[44px] pl-[50px] py-[14px] rounded-[12px] shadow-custom max-sm:w-[100%]"
               />
-              <button onClick={search}><IoIosSearch className="absolute top-1/4 text-[24px] left-[10px]" /></button>
+              <IoIosSearch className="absolute top-1/4 text-[24px] left-[10px]" />
             </div>
           </div>
-          <hr className="max-sm:mt-[50px]"/>
+          <hr className="max-sm:mt-[50px]" />
           <div className="flex flex-col overflow-y-scroll">
             {filteredRepo.map((repo, index) => (
               <Repo key={index} repo={repo} />

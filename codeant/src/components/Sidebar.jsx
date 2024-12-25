@@ -36,13 +36,21 @@ function Sidebar() {
     links.map((link, i) => (
       <li
         key={i}
-        className="flex items-center gap-x-2 px-4 py-2 cursor-pointer rounded-md hover:bg-blue-500 hover:text-white"
+        className={`flex items-center gap-x-2 px-4 py-2 cursor-pointer rounded-md ${
+          link.name === "Repositories"
+            ? "bg-blue-500 text-white" // Default blue color for "Repositories"
+            : link.name === "Logout"
+            ? "text-[#414651] hover:bg-red-600 hover:text-white"
+            : "hover:bg-blue-500 hover:text-white"
+        }`}
         onClick={() => handleLinkClick(link)}
       >
         <span className="text-lg">{link.icon}</span>
         <span>{link.name}</span>
       </li>
     ));
+  
+  
 
   return (
     <div className="sidebar-container md:w-[254px] md:border-r bg-white w-full border-none font-inter">
@@ -66,8 +74,8 @@ function Sidebar() {
             <option value="">Select</option>
             <option value="1">UtkarshDhairyaPanwar</option>
           </select>
-          <ul className="text-nowrap font-semibold">{renderLinks(linksArray[0])}</ul>
-          <ul className="mt-auto absolute bottom-[55px] md:bottom-[20px] text-nowrap font-semibold">{renderLinks(linksArray[1])}</ul>
+          <ul className="text-nowrap flex flex-col gap-y-[10px] font-semibold">{renderLinks(linksArray[0])}</ul>
+          <ul className="mt-auto flex flex-col gap-y-[10px] absolute bottom-[55px] md:bottom-[20px] text-nowrap font-semibold">{renderLinks(linksArray[1])}</ul>
         </div>
       </div>
     </div>
