@@ -16,13 +16,12 @@ function Right() {
     setfilteredRepo(data);
   }, []);
 
-  // Updated search functionality to work on every keystroke
   useEffect(() => {
     const filterRepo = Reposetories.filter((repo) =>
       repo.name.toLowerCase().includes(searchData.toLowerCase())
     );
     setfilteredRepo(filterRepo);
-  }, [searchData, Reposetories]); // Dependencies added to re-run when search input or repositories change
+  }, [searchData, Reposetories]);
 
   const handleSearchChange = (e) => {
     setSearchData(e.target.value);
@@ -43,13 +42,17 @@ function Right() {
                   <span>
                     <LuRefreshCw />
                   </span>
-                  <span className="text-nowrap max-sbs:text-[14px]">Refresh All</span>
+                  <span className="text-nowrap max-sbs:text-[14px]">
+                    Refresh All
+                  </span>
                 </button>
                 <button className="flex gap-x-[12px] items-center bg-[#1570EF] px-[10px] py-[14px] rounded-[6px] text-white h-[40px] w-[158]">
                   <span>
                     <FaPlus />
                   </span>
-                  <span className="text-nowrap max-sbs:text-[14px]">Add Repository</span>
+                  <span className="text-nowrap max-sbs:text-[14px]">
+                    Add Repository
+                  </span>
                 </button>
               </div>
             </div>
