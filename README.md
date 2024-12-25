@@ -11,6 +11,12 @@ This repository contains the solution for the Codeant hiring process assignment.
 ## Features
 
 - **Search Capabilities**: Users can search through the Repositories efficiently, improving the user experience by quickly filtering the required information.
+## Live Demo
+
+The project is hosted on Vercel. You can access the live version of the web application here:
+
+[**code-ant-beta.vercel.app**](https://code-ant-beta.vercel.app)
+
   
 ## How to Run Locally
 
